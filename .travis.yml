@@ -1,6 +1,9 @@
 language: cpp
 compiler: gcc
-
+sudo: required
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install libboost-all-dev
 script:
   - mkdir build && cd build
   - cmake ..
