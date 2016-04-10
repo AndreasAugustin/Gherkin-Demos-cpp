@@ -5,3 +5,6 @@ script:
   - mkdir build && cd build
   - cmake ..
   - make
+  - ./devel/lib/soundex/test/FeatureShowcaseSteps &
+  - cd ../cpp/lib/soundex/test
+  - cucumber
