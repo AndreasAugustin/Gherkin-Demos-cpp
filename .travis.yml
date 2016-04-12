@@ -3,12 +3,10 @@ compiler: gcc
 sudo: required
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y libboost-all-dev
-  - sudo apt-add-repository ppa:brightbox/ruby-ng -y
-  - sudo apt-get update
-  - sudo apt-get install -y ruby2.2 ruby2.2-dev
-  - sudo apt-get install -y rubygems2.2
-  - sudo gem install -y cucumber
+  - sudo apt-get install libboost-all-dev -y
+  - sudo apt-get install ruby rubygems -y
+  - sudo gem install bundler
+  - sudo bundle install
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 script:
