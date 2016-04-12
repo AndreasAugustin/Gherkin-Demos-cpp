@@ -4,8 +4,8 @@ sudo: required
 before_install:
   - sudo apt-get update
   - sudo apt-get install -y libboost-all-dev
-  - sudo apt-add-repository -y ppa:brightbox/ruby-ng
-    - sudo apt-get update
+  - sudo apt-add-repository ppa:brightbox/ruby-ng -y
+  - sudo apt-get update
   - sudo apt-get install -y ruby2.2 ruby2.2-dev
   - sudo apt-get install -y rubygems2.2
   - sudo gem install -y cucumber
