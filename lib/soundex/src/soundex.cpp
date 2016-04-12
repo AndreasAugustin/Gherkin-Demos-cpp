@@ -12,6 +12,13 @@
 
 namespace gherkin_demo {
 
+const size_t Soundex::s_MaxCodeLength = 4;
+
+Soundex::Soundex() :
+    m_notADigit("*") {
+  // nothing to do
+}
+
 std::string Soundex::encode(const std::string &word) const {
   return StringUtil::zeroPad(
       StringUtil::upperFront(StringUtil::head(word)) +

@@ -12,6 +12,8 @@ namespace gherkin_demo {
 
 class Soundex {
  public:
+  Soundex();
+
   std::string encode(const std::string &word) const;
 
   std::string encodedDigit(const char character) const;
@@ -29,8 +31,8 @@ class Soundex {
 
   bool isComplete(const std::string &encoding) const;
 
-  const std::string m_notADigit{"*"};
-  static const size_t s_MaxCodeLength{4};
+  const std::string m_notADigit;
+  static const size_t s_MaxCodeLength;
 };
 
 } /* namespace gherkin_demo */
