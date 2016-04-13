@@ -24,4 +24,4 @@ before_install:
 script:
   - mkdir build && cd build && cmake .. && make
   - ./lib/soundex/test/FeatureShowcaseSteps &
-  - cd ../cpp/lib/soundex/test && bundle exec cucumber
+  - cd ../lib/soundex/test && bundle exec cucumber
