@@ -18,7 +18,7 @@ compiler:
 before_install:
   - sudo apt-get update
   - sudo apt-get install libboost-all-dev -y
-  - sudo apt-get install ruby rubygems -y
+  - sudo apt-get install ruby rubygems-integration -y
   - sudo gem install bundler -y
   - bundle install
 script:
