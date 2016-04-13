@@ -22,9 +22,6 @@ before_install:
   - sudo gem install bundler -y
   - bundle install
 script:
-  - mkdir build && cd build
-  - cmake ..
-  - make
-  - ./devel/lib/soundex/test/FeatureShowcaseSteps &
-  - cd ../cpp/lib/soundex/test
-  - bundle exec cucumber
+  - mkdir build && cd build && cmake .. && make
+  - ./build/devel/lib/soundex/test/FeatureShowcaseSteps &
+  - cd ./cpp/lib/soundex/test && bundle exec cucumber
