@@ -2,8 +2,8 @@ Feature: Soundex algorithm
 
   Scenario Outline: A word is given to soundex algorithm
     Given A soundex instance
-    When I enter a word as "<word>"
-    Then it is encoded to "<encoded>"
+    When I enter a word as <word>
+    Then it is encoded to <encoded>
 
     # the word is the given word
     # encoded is the expected encoded value
@@ -26,7 +26,7 @@ Feature: Soundex algorithm
   Scenario: A word is given to soundex algorithm
     Given A soundex instance
     When I enter the word "Dcdlb"
-    Then the encoded length is equal to "4u"
+    Then the encoded length is equal to 4
 
   Scenario: A word is given to soundex algorithm with lower case letter
     Given A soundex instance
@@ -35,8 +35,8 @@ Feature: Soundex algorithm
 
   Scenario Outline: A word is given to soundex algorithm
     Given A soundex instance
-    When I enter the character "<character>"
-    Then it is equal to other encoded character "<other_character>"
+    When I enter the character <character>
+    Then it is equal to other encoded character <other_character>
     Examples:
       | character | other_character |
       | b         | f               |
@@ -45,8 +45,8 @@ Feature: Soundex algorithm
 
   Scenario Outline: A word is given to soundex algorithm
     Given A soundex instance
-    When I enter the string "<string>"
-    Then it is equal to other encoded string "<other_string>"
+    When I enter the string <string>
+    Then it is equal to other encoded string <other_string>
     Examples:
       | string | other_string |
       | BCDL   | Bcdl         |

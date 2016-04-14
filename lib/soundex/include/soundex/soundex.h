@@ -21,11 +21,11 @@ class Soundex {
  private:
   std::string encodedDigits(const std::string &word) const;
 
-  void encodeHead(std::string *encoding, const std::string &word) const;
+  void encodeHead(std::string &encoding, const std::string &word) const;
 
-  void encodeTail(std::string *encoding, const std::string &word) const;
+  void encodeTail(std::string &encoding, const std::string &word) const;
 
-  void encodeLetter(std::string *encoding, char letter, char lastLetter) const;
+  void encodeLetter(std::string &encoding, char letter, char lastLetter) const;
 
   std::string lastDigit(const std::string &encoding) const;
 

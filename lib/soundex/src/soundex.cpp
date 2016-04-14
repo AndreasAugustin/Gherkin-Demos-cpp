@@ -5,6 +5,7 @@
 
 #include "soundex/soundex.h"
 
+#include <string>
 #include <unordered_map>
 
 #include "soundex/charutil.h"
@@ -45,28 +46,33 @@ std::string Soundex::encodedDigit(const char letter) const {
 
 std::string Soundex::encodedDigits(const std::string &word) const {
   std::string encoding;
-  encodeHead(&encoding, word);
-  encodeTail(&encoding, word);
+  encodeHead(encoding, word);
+  encodeTail(encoding, word);
 
   return encoding;
 }
-void Soundex::encodeHead(std::string *encoding, const std::string &word) const {
-  *encoding += encodedDigit(word.front());
+
+void Soundex::encodeHead(std::string &encoding, const std::string &word) const {
+  encoding += encodedDigit(word.front());
 }
-void Soundex::encodeTail(std::string *encoding, const std::string &word) const {
+
+void Soundex::encodeTail(std::string &encoding, const std::string &word) const {
   for (auto i = 1u; i < word.length(); i++) {
-    if (!isComplete(*encoding)) {
+    if (!isComplete(encoding)) {
       encodeLetter(encoding, word[i], word[i - 1]);
     }
   }
 }
-void Soundex::encodeLetter(std::string *encoding, char letter, char lastLetter) const {
+
+void Soundex::encodeLetter(
+    std::string &encoding, char letter, char lastLetter) const {
   auto digit = encodedDigit(letter);
   if (digit != m_notADigit &&
-      (digit != lastDigit(*encoding) || CharUtil::isVowel(lastLetter))) {
-    *encoding += letter;
+      (digit != lastDigit(encoding) || CharUtil::isVowel(lastLetter))) {
+    encoding += digit;
   }
 }
+
 std::string Soundex::lastDigit(const std::string &encoding) const {
   if (encoding.empty()) {
     return m_notADigit;
@@ -74,8 +80,10 @@ std::string Soundex::lastDigit(const std::string &encoding) const {
 
   return std::string(1, encoding.back());
 }
+
 bool Soundex::isComplete(const std::string &encoding) const {
   return encoding.length() == s_MaxCodeLength;
 }
+
 } /* namespace gherkin_demo */
 

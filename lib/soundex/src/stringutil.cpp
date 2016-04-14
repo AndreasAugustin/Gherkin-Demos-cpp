@@ -16,8 +16,10 @@ std::string StringUtil::head(const std::string &word) {
 }
 
 std::string StringUtil::upperFront(const std::string &word) {
-  return std::string(1, std::toupper(static_cast<unsigned char>(word.front())));
+  return std::string(
+      1, std::toupper(static_cast<unsigned char>(word.front())));
 }
+
 std::string StringUtil::zeroPad(
     const std::string &word,
     const size_t maxCodeLength) {

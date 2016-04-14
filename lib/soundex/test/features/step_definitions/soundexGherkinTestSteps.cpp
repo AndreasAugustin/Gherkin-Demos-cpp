@@ -46,8 +46,8 @@ WHEN("^I enter the word (.*)$") {
   context->encoded = context->soundex.encode(word);
 }
 
-THEN("^the encoded length is equal to (.*)$") {
-  REGEX_PARAM(int, length);
+THEN("^the encoded length is equal to (\\d+)$") {
+  REGEX_PARAM(unsigned int, length);
   ScenarioScope<SoundexCtx> context;
 
   EXPECT_EQ(length, context->encoded.length());
@@ -95,5 +95,5 @@ THEN("^it is equal to other encoded string (.*)$") {
   EXPECT_EQ(expected, context->encoded);
 }
 
-} /* cucumber_test */
-} /* gherkin_demo */
+} /* namespace cucumber_test */
+} /* namespace gherkin_demo */
