@@ -5,6 +5,9 @@
 
 #include "soundex/stringutil.h"
 
+#include <cctype>
+#include <string>
+
 namespace gherkin_demo {
 
 std::string StringUtil::tail(const std::string &word) {
