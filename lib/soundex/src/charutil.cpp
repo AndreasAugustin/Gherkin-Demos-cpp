@@ -5,6 +5,7 @@
 
 #include "soundex/charutil.h"
 
+#include <cctype>
 #include <string>
 
 namespace gherkin_demo {
